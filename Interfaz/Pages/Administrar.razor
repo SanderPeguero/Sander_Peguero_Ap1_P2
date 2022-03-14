@@ -1,9 +1,9 @@
 ﻿@page "/administrar"
 
-<EditForm Model="entidad" OnValidSubmit="Guardar">
+<EditForm Model="inventario" OnValidSubmit="Guardar">
     <DataAnnotationsValidator/>
 
-    <div class="card align-items-inherit bg-light" style="width: 35rem;">
+    <div class="card align-items-inherit bg-light mb-5" style="width: 35rem;">
 
         <div class="card mb-3 bg-secondary">
 
@@ -37,8 +37,8 @@
                     <div class="input-group">
 
                         <span class="input-group-text">Fecha</span>
-                        <InputText class="form-control"  @bind-Value="Fecha"/>
-                        @* <ValidationMessage For="@(() => producto.Descripcion)"/> *@
+                        <InputDate class="form-control" @bind-Value="Fecha"/>
+                        <ValidationMessage For="@(() => Fecha)"/>
 
                     </div>
                 </div>
@@ -48,7 +48,7 @@
 
                         <span class="input-group-text">Concepto</span>
                          <InputText class="form-control" @bind-Value="Concepto" />
-                        @* <ValidationMessage For="@(() => producto.Existencia)"/> *@
+                        <ValidationMessage For="@(() => Concepto)"/>
 
                     </div>
                 </div>
@@ -71,9 +71,10 @@
                             <div class="d-inline mx-3">
 
                                 <label>Producto</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" aria-label="Default select example" @bind="Producto">
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option value="1">Caja Mixta</option>
+                                    <option value="Caja Mixta">Caja Mixta</option>
+                                    <option value="Fundita Mixta">Fundita Mixta</option>
                                     <option value="2">Mani</option>
                                     <option value="3">Pistacho</option>
                                     <option value="4">Pasas</option>
@@ -92,7 +93,7 @@
                             
                             <div class="m-4">
 
-                                <button type="button" class="btn btn-lg btn-dark" > @* @onclick="AgregarDetalle" *@
+                                <button type="button" class="btn btn-lg btn-dark" @onclick="Guardar">
                                     Add
                                 </button>
 
@@ -103,28 +104,84 @@
                 </div>
             </div>
 
+            <h5 class="text-black m-2">Inventario</h5>
             <table class="table table-light">
                 <thead class="thead">
-                    <tr class="table">
-                        <th>Producto</th>
-                        <th>Cantidad</th>
+                    <tr class="table m-3">
+                        <th>Id</th>
+                        <th>Fecha</th>
+                        <th class="m-6">Concepto</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @* @foreach (var item in producto.Detalle)
+                    @foreach (var inventario in DataInventario)
                     {
                         <tr>
-                            <td>Descripcion</td>
-                            <td>Cantidad</td>
-                            <td>Precio</td>
+                            <td>@inventario.Id</td>
+                            <td>@inventario.Fecha</td>
+                            <td>@inventario.Concepto</td>
 
                             <td>
-                                <span class="btn btn-sm btn-outline-primary oi oi-ban" href="#">
+                                <span class="btn btn-sm btn-secondary oi oi-ban" href="#">
                                     Remover
                                 </span>
                             </td>
                         </tr>
-                    } *@
+                    }
+                </tbody>
+            </table>
+
+            <h5 class="text-black m-2">Cajas</h5>
+            <table class="table table-light">
+                <thead class="thead">
+                    <tr class="table m-3">
+                        <th>Id</th>
+                        <th>Fecha</th>
+                        <th class="m-6">Peso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var caja in DataCajas)
+                    {
+                        <tr>
+                            <td>@caja.Id</td>
+                            <td>@caja.Fecha</td>
+                            <td>@caja.Peso lbs</td>
+
+                            <td>
+                                <span class="btn btn-sm btn-secondary oi oi-ban" href="#">
+                                    Remover
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <h5 class="text-black m-2">Funditas</h5>
+            <table class="table table-light">
+                <thead class="thead">
+                    <tr class="table m-3">
+                        <th>Id</th>
+                        <th>Fecha</th>
+                        <th class="m-6">Peso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var fundita in DataFunditas)
+                    {
+                        <tr>
+                            <td>@fundita.Id </td>
+                            <td>@fundita.Fecha </td>
+                            <td>@fundita.Peso lbs</td>
+
+                            <td>
+                                <span class="btn btn-sm btn-secondary oi oi-ban" href="#">
+                                    Remover
+                                </span>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
 
@@ -154,7 +211,7 @@
                             </div>
                             <div class="d-block">
                                 <label>Cantidad</label>
-                                <InputNumber class="form-control" @bind-Value="Cantidad"/>
+                                <InputNumber class="form-control" @bind-Value="Producido"/>
                             </div>
                         </div>
                     </div>
@@ -164,13 +221,13 @@
         </div>
 
         <div class="form-group text-center mb-3">
-             <button type="button" class="btn btn-lg btn-outline-dark mx-3"> @* @onclick="" *@
+             <button type="button" class="btn btn-lg btn-outline-dark mx-3" @onclick="Nuevo">
                 Nuevo
             </button>
-            <button type="button" class="btn btn-lg btn-outline-success mx-3"> @* @onclick="" *@
+            <button type="button" class="btn btn-lg btn-outline-success mx-3" @onclick="Guardar">
                 Guardar
             </button>
-            <button type="button" class="btn btn-lg btn-outline-danger mx-3"> @* @onclick="" *@
+            <button type="button" class="btn btn-lg btn-outline-danger mx-3" @onclick="Eliminar">
                 Eliminar
             </button>
         </div>
@@ -182,30 +239,100 @@
 
 @code {
 
-    public Entidad entidad = new Entidad();
+    public Inventario inventario = new Inventario();
+    @* public Caja caja = new Caja(); *@
+    public Fundita fundita = new Fundita();
 
+    //Entrada de Productos Empacados
     int Id;
-    string Fecha;
+    DateTime Fecha ;
 
     string Concepto;
 
-
     //Utilizados
-
-    int Producto;
-
+    string Producto;
     int Cantidad;
 
-    //Cosa del Profe
+    List<Inventario> DataInventario = new List<Inventario>();
+    List<Caja> DataCajas = new List<Caja>();
+    List<Fundita> DataFunditas = new List<Fundita>();
 
-    int Cajas = 1000;
-    int Pistachos = 1000;
-
-    int Funditas = 200;
-
-
-    public void Guardar(){
+    //Producido
+    int Producido;
+    
+    //Botones
+    public void Nuevo(){
+        Id = 0;
+        Fecha = DateTime.Now;
+        Concepto = "";
+        Cantidad = 0;
+        Producido = 0;
+        DataInventario = InventarioBLL.getLista();
+        DataCajas = InventarioBLL.getListaCaja();
+        DataFunditas = InventarioBLL.getListaFunditas();
 
     }
 
+    public void Guardar(){
+        //Guardar entrada de productos
+
+        //Guardar Utilizados
+        if(Producto == "Caja Mixta"){
+
+            if (Concepto == ""){
+
+                Concepto = "Produciendo Cajas";
+
+            }
+
+            GuardarCaja();
+
+        }else if(Producto == "Fundita Mixta"){
+
+            if (Concepto == ""){
+
+                Concepto = "Produciendo Funditas";
+                
+            }
+            Fundita fundita = new Fundita();
+            fundita = CajasBLL.ConvertirCaja();
+            Cantidad = fundita.Peso;
+
+            for(int s = 0; s < 20; s++){
+
+                FunditasBLL.Guardar(Cantidad);
+
+            }
+
+        }
+        
+        GuardarInventario();
+        Nuevo();
+
+    }
+    public void Eliminar(){
+
+    }
+
+    //Utilidades
+
+    public void GuardarInventario(){
+        
+        inventario.Concepto = Concepto;
+        InventarioBLL.Guardar(DateTime.Now ,Concepto);
+
+    }
+    
+    public void GuardarCaja(){
+        Caja caja = new Caja();
+        caja.SetCajaMixta(Cantidad);
+        CajasBLL.Guardar(caja);
+    }
+
+    public void GuardarFunditas(){
+        Fundita fundita = new Fundita();
+        @* fundita.SetFunditaMixta(Cantidad); *@
+        FunditasBLL.Guardar(Cantidad);
+    }
+    
 }

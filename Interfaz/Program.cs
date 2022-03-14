@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,11 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
 var app = builder.Build();
+
+
+// builder.Services.AddDbContext<Contexto>(options =>
+//     options.UseSqlite(builder.Configuration.GetConnectionString("ConStr"))
+// );
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
