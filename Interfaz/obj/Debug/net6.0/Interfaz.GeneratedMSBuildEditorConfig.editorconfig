@@ -1,0 +1,56 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Interfaz
+build_property.RootNamespace = Interfaz
+build_property.ProjectDir = /Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/Pages/Administrar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW5pc3RyYXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-jqmh66m5p9
+
+[/Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-t22epy7fg1
+
+[/Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/sanderpeguero/Desktop/Blazor/Sander_Peguero_Ap1_P2/Interfaz/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
